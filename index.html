@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viajero Express - Solución Integral</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="app-container">
+
+    <aside class="sidebar">
+        <h2>Viajero Express</h2>
+        <nav>
+            <a href="#" class="nav-item active" data-target="productos">📦 Productos y Servicios</a>
+            <a href="#" class="nav-item" data-target="suscripcion">💳 Pagar Suscripción</a>
+            <a href="#" class="nav-item" data-target="tarjeta">🆔 Solicitar Tarjeta</a>
+            <a href="#" class="nav-item" data-target="recarga">📱 Recargar Saldo</a>
+        </nav>
+    </aside>
+
+    <main class="content">
+
+        <section id="productos" class="tab-content active">
+            <h3>📦 Productos y Servicios</h3>
+
+            <div class="product-card">
+                <h4>Paquete Europa Clásico</h4>
+                <p>15 días, 5 ciudades. Precio: $2,500 USD</p>
+                <button>Ver Detalles</button>
+            </div>
+
+            <div class="product-card">
+                <h4>Seguro de Viaje Premium</h4>
+                <p>Cobertura mundial por 1 año. Precio: $150 USD</p>
+                <button>Ver Detalles</button>
+            </div>
+        </section>
+
+        <section id="suscripcion" class="tab-content">
+            <h3>💳 Pagar Suscripción</h3>
+            <input type="text" value="$19.99 USD" readonly>
+            <button>Pagar Ahora (Simulado)</button>
+        </section>
+
+        <section id="tarjeta" class="tab-content">
+            <h3>🆔 Solicitar Tarjeta</h3>
+            <input type="text" placeholder="Nombre completo">
+            <input type="text" placeholder="Dirección de envío">
+            <button>Enviar Solicitud</button>
+        </section>
+
+        <section id="recarga" class="tab-content">
+            <h3>📱 Recargar Saldo</h3>
+            <input type="tel" placeholder="+52 55 0000 0000">
+            <select>
+                <option>MovilCom</option>
+                <option>GlobalTel</option>
+            </select>
+            <button>Recargar</button>
+        </section>
+
+    </main>
+</div>
+
+<script>
+const navItems = document.querySelectorAll('.nav-item');
+const tabContents = document.querySelectorAll('.tab-content');
+
+navItems.forEach(item => {
+    item.addEventListener('click', e => {
+        e.preventDefault();
+
+        navItems.forEach(n => n.classList.remove('active'));
+        tabContents.forEach(t => t.classList.remove('active'));
+
+        item.classList.add('active');
+        document.getElementById(item.dataset.target).classList.add('active');
+    });
+});
+</script>
+
+</body>
+</html>
